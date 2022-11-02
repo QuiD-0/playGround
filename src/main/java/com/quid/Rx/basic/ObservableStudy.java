@@ -1,10 +1,16 @@
-package com.quid.Rx.observable;
+package com.quid.Rx.basic;
 
+import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import org.junit.jupiter.api.Test;
 
 public class ObservableStudy {
+
+    @Test
+    public void Flowable(){
+        Flowable.just("Hello world").subscribe(System.out::println);
+    }
 
 
     @Test
