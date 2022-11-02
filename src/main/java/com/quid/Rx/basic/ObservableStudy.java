@@ -12,6 +12,13 @@ public class ObservableStudy {
         Flowable.just("Hello world").subscribe(System.out::println);
     }
 
+    @Test
+    public void Flowable2(){
+        Flowable.range(1, 10)
+            .map(v -> v * v)
+            .filter(v -> v % 3 == 0).subscribe(System.out::println);
+    }
+
 
     @Test
     public void ObservableTest() {
