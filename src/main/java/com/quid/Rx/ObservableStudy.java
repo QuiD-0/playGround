@@ -1,6 +1,7 @@
-package com.quid.Rx.basic;
+package com.quid.Rx;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import org.junit.jupiter.api.Test;
@@ -44,6 +45,28 @@ public class ObservableStudy {
     public void single() {
         Observable.empty()
             .single("default value")
+            .subscribe(System.out::println);
+    }
+
+    @Test
+    public void single2() {
+        Observable.just("Hello Single")
+            .single("default value")
+            .subscribe(System.out::println);
+    }
+
+    @Test
+    public void single_error() {
+        Observable.just("Hello Single", "Hello Single2")
+            .single("default value")
+            .onErrorReturn(e -> "Error")
+            .subscribe(System.out::println);
+    }
+
+    @Test
+    public void maybe() {
+        Observable<String> source = Observable.just("Hello Maybe");
+        Maybe.fromObservable(source)
             .subscribe(System.out::println);
     }
 }
