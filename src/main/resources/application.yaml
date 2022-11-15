@@ -7,7 +7,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
-      url: jdbc:mysql://localhost:3308/playGround
+      url: jdbc:mysql://localhost:3306/playGround
       username: local_user
       password: LOCAL_TEST
       driver-class-name: com.mysql.cj.jdbc.Driver
