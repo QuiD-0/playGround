@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mysql:
-    container_name: playGround_local
+    container_name: mysql
     image: mysql:8.0.30
     volumes:
       - ./db/conf.d:/etc/mysql/conf.d
