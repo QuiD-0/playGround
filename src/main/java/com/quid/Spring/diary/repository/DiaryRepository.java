@@ -15,7 +15,5 @@ public interface DiaryRepository {
 
     Page<Diary> findAllByDate(LocalDate date, Pageable pageable);
 
-    List<Diary> findAll();
-
     List<DailyCount> dailyCount();
 }

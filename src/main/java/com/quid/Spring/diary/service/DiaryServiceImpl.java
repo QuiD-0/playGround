@@ -5,7 +5,6 @@ import com.quid.Spring.diary.model.DailyCount;
 import com.quid.Spring.diary.model.DiarySaveRequestDto;
 import com.quid.Spring.diary.repository.DiaryRepository;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

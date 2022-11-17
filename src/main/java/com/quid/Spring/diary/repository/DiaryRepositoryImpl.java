@@ -33,11 +33,6 @@ public class DiaryRepositoryImpl implements DiaryRepository{
     }
 
     @Override
-    public List<Diary> findAll() {
-        return diaryJpaRepository.findAll();
-    }
-
-    @Override
     public List<DailyCount> dailyCount() {
         return dairyDslRepository.dailyCount();
     }
