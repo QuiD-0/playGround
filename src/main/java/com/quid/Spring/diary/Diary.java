@@ -1,7 +1,9 @@
 package com.quid.Spring.diary;
 
-import com.quid.Spring.diary.controller.DiaryDto;
+import com.quid.Spring.diary.model.DiaryDto;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,26 +12,32 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Diary {
 
+    private final static String OWNER = "QuiD-0";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private static final String username = "QuiD-0";
+    @Column(length = 20)
+    private String username;
+    @Column(length = 100)
     private String title;
+    @Column(length = 1000)
     private String content;
+    private LocalDate date;
     private LocalDateTime createdAt;
 
     @Builder
-    public Diary(String title, String content) {
+    public Diary(String title, String content, LocalDate date) {
+        this.username = OWNER;
         this.title = title;
         this.content = content;
+        this.date = date;
         this.createdAt = LocalDateTime.now();
     }
 
@@ -42,4 +50,5 @@ public class Diary {
                 .createdAt(createdAt)
                 .build();
     }
+
 }

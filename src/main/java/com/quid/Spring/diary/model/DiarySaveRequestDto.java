@@ -1,25 +1,17 @@
 package com.quid.Spring.diary.model;
 
 import com.quid.Spring.diary.Diary;
-import lombok.Builder;
-import lombok.Data;
+import java.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
 
-@Data
-public class DiarySaveRequestDto {
-
-    private String title;
-    private String content;
-
-    @Builder
-    public DiarySaveRequestDto(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
+public record DiarySaveRequestDto(String title, String content,
+                                  @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
 
     public Diary toEntity() {
         return Diary.builder()
-                .title(title)
-                .content(content)
-                .build();
+            .title(title)
+            .content(content)
+            .date(date)
+            .build();
     }
 }
