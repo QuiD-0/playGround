@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,6 +17,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@Table(name = "diary", indexes =
+@Index(name = "idx_diary_date", columnList = "date")
+)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Diary {
 
