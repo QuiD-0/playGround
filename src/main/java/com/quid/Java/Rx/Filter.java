@@ -1,4 +1,4 @@
-package com.quid.Rx;
+package com.quid.Java.Rx;
 
 import io.reactivex.rxjava3.core.Observable;
 import org.junit.jupiter.api.Test;

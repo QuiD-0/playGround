@@ -17,9 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Table(name = "diary", indexes =
-@Index(name = "idx_diary_date", columnList = "date")
-)
+@Table(name = "diary", indexes = @Index(name = "idx_diary_date", columnList = "date"))
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Diary {
 
@@ -47,13 +45,8 @@ public class Diary {
     }
 
     public DiaryDto toDto() {
-        return DiaryDto.builder()
-                .id(id)
-                .username(username)
-                .title(title)
-                .content(content)
-                .createdAt(createdAt)
-                .build();
+        return DiaryDto.builder().id(id).username(username).title(title).content(content)
+            .createdAt(createdAt).build();
     }
 
 }

@@ -17,7 +17,7 @@ public class DairyDslRepository {
 
     public List<DailyCount> dailyCount() {
         return jpaQueryFactory
-            .select(Projections.constructor(DailyCount.class, diary.date, diary.id.count()))
+            .select(Projections.constructor(DailyCount.class, diary.date, diary.date.count()))
                 .from(diary)
                 .groupBy(diary.date)
                 .fetch();
