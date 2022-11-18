@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.IntStream;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,11 @@ class DiaryRepositoryImplTest {
 
 
     @Test
+    @Disabled
     @Rollback(value = false)
     @DisplayName("테스트를 위한 데이터 삽입")
     public void bulkInsert() {
-        List<Diary> diaries = IntStream.range(0, 100)
+        List<Diary> diaries = IntStream.range(0, 100000)
             .mapToObj(DiaryRepositoryImplTest::getRandomDiary)
             .toList();
 
