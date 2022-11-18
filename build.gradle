@@ -42,6 +42,7 @@ dependencies {
 	testImplementation 'org.jeasy:easy-random-core:5.0.0'
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
+	implementation 'com.theokanning.openai-gpt3-java:client:0.8.0'
 	}
 
 tasks.named('test') {
