@@ -36,4 +36,10 @@ public class DiaryRepositoryImpl implements DiaryRepository{
     public List<DailyCount> dailyCount() {
         return dairyDslRepository.dailyCount();
     }
+
+
+    @Override
+    public void saveAll(List<Diary> diaries) {
+        diaryJpaRepository.saveAll(diaries);
+    }
 }
