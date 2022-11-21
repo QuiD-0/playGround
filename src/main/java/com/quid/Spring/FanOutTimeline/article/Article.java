@@ -1,5 +1,6 @@
 package com.quid.Spring.FanOutTimeline.article;
 
+import com.quid.Spring.FanOutTimeline.article.model.ArticleDto;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,5 +27,14 @@ public class Article {
         this.memberId = memberId;
         this.title = title;
         this.content = content;
+    }
+
+    public ArticleDto toDto() {
+        return ArticleDto.builder()
+            .id(id)
+            .memberId(memberId)
+            .title(title)
+            .content(content)
+            .build();
     }
 }
