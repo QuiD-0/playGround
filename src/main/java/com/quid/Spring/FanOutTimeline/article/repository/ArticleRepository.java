@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 public interface ArticleRepository {
 
 
-    void save(Article article);
+    Article save(Article article);
 
     void deleteById(Long id);
 

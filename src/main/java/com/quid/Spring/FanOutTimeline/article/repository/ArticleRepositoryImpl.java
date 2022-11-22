@@ -13,8 +13,8 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     private final ArticleJpaRepository articleJpaRepository;
 
     @Override
-    public void save(Article article) {
-        articleJpaRepository.save(article);
+    public Article save(Article article) {
+        return articleJpaRepository.save(article);
     }
 
     @Override
