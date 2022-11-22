@@ -2,6 +2,7 @@ package com.quid.Spring.FanOutTimeline.follow.repository;
 
 import com.quid.Spring.FanOutTimeline.follow.Follow;
 import com.quid.Spring.FanOutTimeline.follow.model.FollowRequestDto;
+import java.util.List;
 import java.util.Optional;
 
 public interface FollowRepository {
@@ -11,4 +12,6 @@ public interface FollowRepository {
     void unfollow(Follow follow);
 
     Optional<Follow> findByFollowId(Long followUserId);
+
+    List<Follow> findFollowList(Long memberId);
 }

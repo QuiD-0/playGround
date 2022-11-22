@@ -2,6 +2,7 @@ package com.quid.Spring.FanOutTimeline.follow.repository;
 
 import com.quid.Spring.FanOutTimeline.follow.Follow;
 import com.quid.Spring.FanOutTimeline.follow.model.FollowRequestDto;
+import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -25,5 +26,10 @@ public class FollowRepositoryImpl implements FollowRepository {
     @Override
     public Optional<Follow> findByFollowId(Long followUserId) {
         return followJpaRepository.findByFollowerId(followUserId);
+    }
+
+    @Override
+    public List<Follow> findFollowList(Long memberId) {
+        return followJpaRepository.findByMemberId(memberId);
     }
 }
