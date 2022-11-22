@@ -24,12 +24,12 @@ public class FollowRepositoryImpl implements FollowRepository {
     }
 
     @Override
-    public Optional<Follow> findByFollowId(Long followUserId) {
-        return followJpaRepository.findByFollowerId(followUserId);
+    public Optional<Follow> findByFollowId(Long followUserId, Long memberId) {
+        return followJpaRepository.findByFollowerIdAndMemberId(followUserId, memberId);
     }
 
     @Override
     public List<Follow> findFollowList(Long memberId) {
-        return followJpaRepository.findByMemberId(memberId);
+        return followJpaRepository.findByFollowerId(memberId);
     }
 }

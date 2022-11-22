@@ -15,18 +15,19 @@ public class followServiceImpl implements FollowService {
     @Override
     @Transactional
     public void follow(FollowRequestDto followRequestDto) {
-        followRepository.findByFollowId(followRequestDto.followUserId()).ifPresentOrElse(
-            follow -> {
-                throw new IllegalArgumentException("이미 팔로우한 유저입니다.");
-            },
-            () -> followRepository.follow(followRequestDto)
-        );
+        followRepository.findByFollowId(followRequestDto.followUserId(), followRequestDto.userId())
+            .ifPresentOrElse(
+                follow -> {
+                    throw new IllegalArgumentException("이미 팔로우한 유저입니다.");
+                },
+                () -> followRepository.follow(followRequestDto)
+            );
     }
 
     @Override
     @Transactional
     public void unfollow(FollowRequestDto followRequestDto) {
-        followRepository.findByFollowId(followRequestDto.followUserId())
+        followRepository.findByFollowId(followRequestDto.followUserId(), followRequestDto.userId())
             .ifPresent(followRepository::unfollow);
     }
 

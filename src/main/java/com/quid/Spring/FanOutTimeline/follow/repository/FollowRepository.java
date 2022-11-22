@@ -11,7 +11,7 @@ public interface FollowRepository {
 
     void unfollow(Follow follow);
 
-    Optional<Follow> findByFollowId(Long followUserId);
+    Optional<Follow> findByFollowId(Long followUserId, Long memberId);
 
     List<Follow> findFollowList(Long memberId);
 }

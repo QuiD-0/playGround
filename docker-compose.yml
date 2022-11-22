@@ -20,12 +20,12 @@ services:
       - --collation-server=utf8_general_ci
   zookeeper:
     image: wurstmeister/zookeeper
-    container_name: zookeeper
+    container_name: zookeeper_ground
     ports:
       - "2181:2181"
   kafka:
     image: wurstmeister/kafka:2.12-2.5.0
-    container_name: kafka
+    container_name: kafka_ground
     ports:
       - "9092:9092"
     environment:
