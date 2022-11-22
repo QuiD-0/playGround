@@ -1,4 +1,4 @@
-package com.quid.Lambda;
+package com.quid.Java.Lambda;
 
 import java.util.function.Supplier;
 import org.junit.jupiter.api.Test;
