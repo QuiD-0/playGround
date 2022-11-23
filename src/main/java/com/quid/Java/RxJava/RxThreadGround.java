@@ -1,4 +1,4 @@
-package com.quid.Java.Rx;
+package com.quid.Java.RxJava;
 
 import static java.lang.Thread.sleep;
 
@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 @Slf4j
-public class Thread {
+public class RxThreadGround {
 
     private String[] strings = IntStream.range(0, 10).mapToObj(i -> "arr" + i)
         .toArray(String[]::new);
@@ -26,10 +26,10 @@ public class Thread {
         Observable<String> source = Observable.fromArray(strings);
 
         source.subscribeOn(Schedulers.computation()).map(data -> "<<" + data + ">>")
-            .observeOn(Schedulers.newThread()).subscribe(Thread::log);
+            .observeOn(Schedulers.newThread()).subscribe(RxThreadGround::log);
 
         source.subscribeOn(Schedulers.computation()).map(data -> "##" + data + "##")
-            .observeOn(Schedulers.newThread()).subscribe(Thread::log);
+            .observeOn(Schedulers.newThread()).subscribe(RxThreadGround::log);
 
         sleep(5000);
     }
@@ -38,8 +38,8 @@ public class Thread {
     public void singleThread() {
         Observable<String> source = Observable.fromArray(strings);
 
-        source.map(data -> "<<" + data + ">>").subscribe(Thread::log);
+        source.map(data -> "<<" + data + ">>").subscribe(RxThreadGround::log);
 
-        source.map(data -> "##" + data + "##").subscribe(Thread::log);
+        source.map(data -> "##" + data + "##").subscribe(RxThreadGround::log);
     }
 }

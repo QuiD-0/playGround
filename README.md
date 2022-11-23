@@ -11,7 +11,9 @@
 │   │   └── 준비중
 │   │
 │   ├── Java
-│   │   └── java의 다양한 기능들 정리(RxJava, Lambda, Stream 등)
+│   │   ├── Lambda
+│   │   ├── RxJava
+│   │   └── Thread
 │   │
 │   ├── Kotlin
 │   │   └── kotlin을 배우며 정리

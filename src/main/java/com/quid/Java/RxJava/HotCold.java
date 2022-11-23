@@ -1,4 +1,4 @@
-package com.quid.Java.Rx;
+package com.quid.Java.RxJava;
 
 import static java.lang.Thread.sleep;
 
