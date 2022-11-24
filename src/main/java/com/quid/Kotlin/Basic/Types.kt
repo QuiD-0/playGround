@@ -16,16 +16,19 @@ class Types {
 
         if (num1 is Int) {
             println("num1 is Int")
-            val num4 = num1 as Long
+            val num4 = num1.toLong()
             println("num4 is Long")
         }
+
+        anyFunction(1)
     }
 
-    @Test
-    fun anyFunction() {
-        val any = 1
+    private fun anyFunction(any: Any) {
         if (any is Any) {
             println("any is Any")
+        }
+        if (any is String) {
+            println("any is String")
         }
     }
 
