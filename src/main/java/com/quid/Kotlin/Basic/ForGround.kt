@@ -2,7 +2,7 @@ package com.quid.Kotlin.Basic;
 
 import org.junit.jupiter.api.Test;
 
-public class ForGround {
+class ForGround {
 
     @Test
     fun test() {
