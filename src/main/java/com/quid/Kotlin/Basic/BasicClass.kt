@@ -27,9 +27,7 @@ class BasicClass(private val name: String, private val age: Int) {
     }
 
     override fun hashCode(): Int {
-        var result = name.hashCode()
-        result = 31 * result + age
-        return result
+        return 31 * name.hashCode() + age
     }
 
 }
