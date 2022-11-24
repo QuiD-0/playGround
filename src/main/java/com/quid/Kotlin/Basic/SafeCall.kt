@@ -7,7 +7,7 @@ class SafeCall {
     @Test
     fun test() {
         val a: String? = "abc"
-        val length = a?.length
+        val length: Int? = a?.length
         println("length = $length")
         val i = a?.length ?: -1
         println("i = $i")
