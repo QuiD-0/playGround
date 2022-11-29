@@ -9,6 +9,7 @@ class Person private constructor(val name: String, var age: Int) {
         fun of(): Person {
             return Person("QuiD", 0)
         }
+
         fun of(name: String, age: Int): Person {
             return Person(name, age)
         }

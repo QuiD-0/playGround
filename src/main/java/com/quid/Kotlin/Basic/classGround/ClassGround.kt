@@ -1,5 +1,6 @@
-package com.quid.Kotlin.Basic
+package com.quid.Kotlin.Basic.classGround
 
+import com.quid.Kotlin.Basic.BasicClass
 import org.junit.jupiter.api.Test
 
 class ClassGround {
