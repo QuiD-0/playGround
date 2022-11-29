@@ -18,5 +18,8 @@ class ClassGround {
         println("b = $b")
 
         println(basicClass + basicClass2)
+
+        Singleton.name  = "Quid"
+        println(Singleton)
     }
 }
