@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class DiaryServiceImpl implements DiaryService {
+public final class DiaryServiceImpl implements DiaryService {
 
     private final DiaryRepository diaryRepository;
 
     @Override
-    public void write(DiarySaveRequestDto diaryWriteRequestDto){
+    public void write(DiarySaveRequestDto diaryWriteRequestDto) {
         log.info("write diary");
         diaryRepository.save(diaryWriteRequestDto.toEntity());
     }
