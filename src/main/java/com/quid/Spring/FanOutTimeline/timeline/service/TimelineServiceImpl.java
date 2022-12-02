@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class TimelineServiceImpl implements TimelineService {
+public non-sealed class TimelineServiceImpl implements TimelineService {
 
     private final TimelineRepository timelineRepository;
 

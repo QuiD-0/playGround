@@ -4,7 +4,7 @@ import com.quid.Spring.FanOutTimeline.article.Article;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface ArticleRepository {
+public sealed interface ArticleRepository permits ArticleRepositoryImpl {
 
 
     Article save(Article article);

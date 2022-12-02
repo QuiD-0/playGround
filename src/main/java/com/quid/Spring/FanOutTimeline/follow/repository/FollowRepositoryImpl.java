@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class FollowRepositoryImpl implements FollowRepository {
+public final class FollowRepositoryImpl implements FollowRepository {
 
     private final FollowJpaRepository followJpaRepository;
 

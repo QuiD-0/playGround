@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class followServiceImpl implements FollowService {
+public non-sealed class followServiceImpl implements FollowService {
 
     private final FollowRepository followRepository;
 

@@ -2,7 +2,7 @@ package com.quid.Spring.FanOutTimeline.follow.service;
 
 import com.quid.Spring.FanOutTimeline.follow.model.FollowRequestDto;
 
-public interface FollowService {
+public sealed interface FollowService permits followServiceImpl {
 
     void follow(FollowRequestDto followRequestDto);
 

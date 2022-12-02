@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class TimelineRepositoryImpl implements TimelineRepository {
+public final class TimelineRepositoryImpl implements TimelineRepository {
 
     private final TimelineDslRepository timelineDslRepository;
 

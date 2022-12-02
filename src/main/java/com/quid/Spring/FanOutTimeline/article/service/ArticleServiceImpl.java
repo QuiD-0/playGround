@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class ArticleServiceImpl implements ArticleService {
+public non-sealed class ArticleServiceImpl implements ArticleService {
 
     private final ArticleRepository articleRepository;
 

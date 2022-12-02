@@ -5,7 +5,7 @@ import com.quid.Spring.FanOutTimeline.follow.model.FollowRequestDto;
 import java.util.List;
 import java.util.Optional;
 
-public interface FollowRepository {
+public sealed interface FollowRepository permits FollowRepositoryImpl {
 
     void follow(FollowRequestDto followRequestDto);
 

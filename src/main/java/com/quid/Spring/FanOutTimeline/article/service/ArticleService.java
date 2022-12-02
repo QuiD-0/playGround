@@ -5,7 +5,7 @@ import com.quid.Spring.FanOutTimeline.article.model.ArticleRequestDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface ArticleService {
+public sealed interface ArticleService permits ArticleServiceImpl {
 
     void createArticle(ArticleRequestDto articleRequestDto);
 
