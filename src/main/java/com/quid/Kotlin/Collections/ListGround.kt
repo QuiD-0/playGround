@@ -1,4 +1,4 @@
-package com.quid.Kotlin.Functional
+package com.quid.Kotlin.Collections
 
 fun main() {
     val list1 = listOf(1, 2, 3)

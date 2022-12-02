@@ -1,4 +1,4 @@
-package com.quid.Kotlin.Functional
+package com.quid.Kotlin.Collections
 
 fun main() {
     val array1 = arrayOf(1, 2, 3, 4, 5)

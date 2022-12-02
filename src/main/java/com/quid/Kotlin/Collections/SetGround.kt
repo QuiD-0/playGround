@@ -1,4 +1,4 @@
-package com.quid.Kotlin.Functional
+package com.quid.Kotlin.Collections
 
 fun main() {
     val set1 = setOf(1, 2, 3)
