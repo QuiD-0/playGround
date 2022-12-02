@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public final class DiaryServiceImpl implements DiaryService {
+public non-sealed class DiaryServiceImpl implements DiaryService {
 
     private final DiaryRepository diaryRepository;
 
