@@ -10,5 +10,6 @@ fun main() {
 fun isApple(name: String): Boolean = name == "apple"
 
 private fun filterFruits(fruits: List<String>, filter: (String) -> Boolean): List<String> {
-    return fruits.filter { filter(it) }
+    return fruits.filter(predicate = filter)
 }
+
