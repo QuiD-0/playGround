@@ -4,6 +4,9 @@
 ```bash
 ├── src.main.java.com.quid
 │   │
+│   ├── Design Pattern
+│   │   └── 준비중
+│   │
 │   ├── DockerCompose
 │   │   └── 서비스 간단 설정 정리
 │   │
