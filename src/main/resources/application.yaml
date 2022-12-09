@@ -9,7 +9,7 @@ spring:
         jdbc:
           batch_size: 100
   datasource:
-    url: jdbc:mysql://localhost:3306/playGround
+    url: jdbc:mysql://localhost:3308/playGround
     username: local_user
     password: LOCAL_TEST
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public final class DiaryRepositoryImpl implements DiaryRepository {
+public non-sealed class DiaryRepositoryImpl implements DiaryRepository {
 
     private final DiaryJpaRepository diaryJpaRepository;
 
