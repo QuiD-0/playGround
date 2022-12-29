@@ -1,4 +1,4 @@
-package com.quid.Kotlin.JWT
+package com.quid.JWT
 
 import java.util.*
 
