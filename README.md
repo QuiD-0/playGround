@@ -8,7 +8,7 @@
 │   │   └── 준비중
 │   │
 │   ├── DockerCompose
-│   │   └── 서비스 간단 설정 정리
+│   │   └── compose 간단 설정 정리 / mySQL, kafka, redis
 │   │
 │   ├── ELK
 │   │   └── 준비중
@@ -17,6 +17,9 @@
 │   │   ├── Lambda
 │   │   ├── RxJava
 │   │   └── Thread
+│   │
+│   ├── JTW 
+│   │   └── header, payload, signature 구조로 된 간단한 JWT Kotlin으로 직접 구현
 │   │
 │   ├── Kotlin
 │   │   └── kotlin을 배우며 정리
