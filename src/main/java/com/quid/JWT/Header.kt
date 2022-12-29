@@ -4,24 +4,11 @@ import java.util.*
 
 
 class Header(
-    private var alg: String = "HS256",
-    private var typ: String = "JWT"
+    private val alg: String = "HS256",
+    private val typ: String = "JWT"
 ) {
-    fun alg(alg: String): Header {
-        this.alg = alg
-        return this
-    }
 
-    fun typ(typ: String): Header {
-        this.typ = typ
-        return this
-    }
-
-    fun build(): Header {
-        return this
-    }
-
-    fun getHeader(): String {
+    private fun getHeader(): String {
         return "{\"alg\": \"$alg\", \"typ\": \"$typ\"}"
     }
 
