@@ -6,10 +6,7 @@ class Token(
     private val secret: String = "default_secret",
 ) {
     fun getToken(): String {
-        return header.getEncodedHeader() + "." + payload.getEncodedPayload() + "." + Signature(
-            payload,
-            header,
-            secret
-        ).getSignature()
+        return header.getEncodedHeader() + "." + payload.getEncodedPayload() + "." +
+                Signature(payload, header, secret).getSignature()
     }
 }
