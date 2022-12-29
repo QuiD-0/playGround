@@ -8,7 +8,7 @@ import javax.crypto.spec.SecretKeySpec
 class Signature(
     private val payload: Payload,
     private var header: Header,
-    private var secret: String = "default_secret",
+    private var secret: String,
 ) {
 
     fun getSignature(): String {

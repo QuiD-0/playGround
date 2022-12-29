@@ -3,6 +3,7 @@ package com.quid.Kotlin.JWT
 class Token {
     private lateinit var header: Header
     private lateinit var payload: Payload
+    private var secret: String = "default_secret"
 
     fun header(header: Header): Token {
         this.header = header
@@ -14,6 +15,11 @@ class Token {
         return this
     }
 
+    fun secret(secret: String): Token {
+        this.secret = secret
+        return this
+    }
+
     fun build(): Token {
         return this
     }
@@ -21,7 +27,8 @@ class Token {
     fun getToken(): String {
         return header.getEncodedHeader() + "." + payload.getEncodedPayload() + "." + Signature(
             payload,
-            header
+            header,
+            secret
         ).getSignature()
     }
 }

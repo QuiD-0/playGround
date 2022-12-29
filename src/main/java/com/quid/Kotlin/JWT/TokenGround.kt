@@ -9,4 +9,11 @@ fun main() {
         .payload(payload)
         .build()
     println(token.getToken())
+
+    val token2 = Token()
+        .header(header)
+        .payload(payload)
+        .secret("my_secret")
+        .build()
+    println(token2.getToken())
 }
