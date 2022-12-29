@@ -34,10 +34,13 @@
 │       ├── diary
 │       │   └── mySQL 인덱싱, 벌크인서트 등을 테스트해보기 위한 간단한 다이어리 서비스
 │       │
-│       └── FanOutTimeline
+│       └── FanOutTimeline #1
 │           └── 팔로우한 사람의 글을 빠르게 가져오기 위한 Fan Out On Write 서비스
 │               카프카를 사용한 비동기 처리
-│               [readme](src/main/java/com/quid/spring/FanOutTimeline/readme.md)
 │
 └─── Readme.md
 ``` 
+
+### #1 FanOutTimeline
+
+[readme](src/main/java/com/quid/spring/FanOutTimeline/readme.md)
