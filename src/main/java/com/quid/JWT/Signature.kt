@@ -17,10 +17,10 @@ class Signature(
     }
 
     private fun getMac(msg: String): ByteArray {
-        val sha256_HMAC = Mac.getInstance("HmacSHA256")
-        val secret_key = SecretKeySpec(secret.encodeToByteArray(), "SHA256")
-        sha256_HMAC.init(secret_key)
-        return sha256_HMAC.doFinal(msg.toByteArray())
+        val sha256Hmac = Mac.getInstance("HmacSHA256")
+        val secretKey = SecretKeySpec(secret.encodeToByteArray(), "SHA256")
+        sha256Hmac.init(secretKey)
+        return sha256Hmac.doFinal(msg.toByteArray())
     }
 
     private fun hashing(bt: ByteArray): String {

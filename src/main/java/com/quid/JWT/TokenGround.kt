@@ -12,7 +12,7 @@ fun main() {
 
     val token2 = Token()
         .header(header)
-        .payload(payload)
+        .payload(payload.name("JaeUng"))
         .secret("my_secret")
         .build()
     println(token2.getToken())
