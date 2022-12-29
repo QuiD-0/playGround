@@ -1,7 +1,7 @@
 # playGround
 이것저것 실험실입니다.
 
-```bash
+```
 ├── src.main.java.com.quid
 │   │
 │   ├── Design Pattern
