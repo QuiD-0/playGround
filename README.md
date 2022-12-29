@@ -37,6 +37,7 @@
 │       └── FanOutTimeline
 │           └── 팔로우한 사람의 글을 빠르게 가져오기 위한 Fan Out On Write 서비스
 │               카프카를 사용한 비동기 처리
+│               [readme](src/main/java/com/quid/spring/FanOutTimeline/readme.md)
 │
 └─── Readme.md
 ``` 
