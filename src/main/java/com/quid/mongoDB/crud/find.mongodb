@@ -1,0 +1,5 @@
+db.employees.find() 
+
+db.employees.find({"name": "quid"}) 
+
+db.employees.find( { "name" : "loop1" } ) 

@@ -1,0 +1,52 @@
+db.employees.insertOne({
+    name: "quid",
+    age: 20,
+    hobbies: ["coding", "reading", "writing"],
+    address: {
+        street: "123 main st",
+        city: "new york",
+        state: "ny"
+    },
+    dateOfBirth: new Date("1997-06-28")
+})
+
+db.employees.insertMany([
+    {
+        name: "ocean",
+        age: 22,
+        hobbies: ["eating", "sleeping", "coding"],
+        address: {
+            street: "123 main st",
+            city: "new york",
+            state: "ny"
+        },
+        dateOfBirth: new Date("1997-06-28")
+    },
+    {
+        name: "river",
+        age: 21,
+        hobbies: ["swimming", "reading", "writing"],
+        address: {
+            street: "123 main st",
+            city: "new york",
+            state: "ny"
+        },
+        dateOfBirth: new Date("1997-06-28")
+    }
+])
+
+var docs = [];
+for (var i = 0; i < 100; i++) {
+    docs.push({
+        name: "loop"+i,
+        age: i,
+        hobbies: ["eating", "sleeping", "coding"],
+        address: {
+            street: "123 main st",
+            city: "new york",
+            state: "ny"
+        },
+        dateOfBirth: new Date("1997-06-28")
+    })
+}
+db.employees.insertMany(docs)

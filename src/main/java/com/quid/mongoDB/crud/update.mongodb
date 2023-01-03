@@ -1,0 +1,6 @@
+db.employees.updateOne({name:"loop1"},{$set:{age:31}})
+
+db.employees.updateOne({name:"loop1"},{$set:{bonus:""}})
+
+db.employees.updateOne({name:"loop1", bonus : {$exists : true} },
+{$set:{bonus: 200000}})
