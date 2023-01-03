@@ -1,0 +1,102 @@
+//insert solar system data with detail info
+db.planet.insertMany([
+    {
+        "name": "Mercury",
+        "radius": 2439.7,
+        "mass": 3.3022e+23,
+        "distance": 57909227,
+        "atmosphere": "none",
+        "satellites": 0,
+        "probes": 4
+    },
+    {
+        "name": "Venus",
+        "radius": 6051.8,
+        "mass": 4.8676e+24,
+        "distance": 108209475,
+        "atmosphere": "CO2",
+        "satellites": 0,
+        "probes": 7
+    },
+    {
+        "name": "Earth",
+        "radius": 6371,
+        "mass": 5.97237e+24,
+        "distance": 149598262,
+        "atmosphere": "N2, O2",
+        "satellites": 1,
+        "probes": 8
+    },
+    {
+        "name": "Mars",
+        "radius": 3389.5,
+        "mass": 6.4171e+23,
+        "distance": 227943824,
+        "atmosphere": "CO2",
+        "satellites": 2,
+        "probes": 6
+    },
+    {
+        "name": "Jupiter",
+        "radius": 69911,
+        "mass": 1.8986e+27,
+        "distance": 778340821,
+        "atmosphere": "H2, He",
+        "satellites": 67,
+        "probes": 16
+    },
+    {
+        "name": "Saturn",
+        "radius": 58232,
+        "mass": 5.6834e+26,
+        "distance": 1426666422,
+        "atmosphere": "H2, He",
+        "satellites": 62,
+        "probes": 15
+    },
+    {
+        "name": "Uranus",
+        "radius": 25362,
+        "mass": 8.6810e+25,
+        "distance": 2870658186,
+        "atmosphere": "H2, He",
+        "satellites": 27,
+        "probes": 5
+    },
+    {
+        "name": "Neptune",
+        "radius": 24622,
+        "mass": 1.0243e+26,
+        "distance": 4498396441,
+        "atmosphere": "H2, He",
+        "satellites": 14,
+        "probes": 8
+    },
+    {
+        "name": "Pluto",
+        "radius": 1188.3,
+        "mass": 1.3030e+22,
+        "distance": 5906386190,
+        "atmosphere": "N2, CH4",
+        "satellites": 5,
+        "probes": 2
+    },
+    {
+        "name": "Sun",
+        "radius": 695700,
+        "mass": 1.9891e+30,
+        "distance": 0,
+        "atmosphere": "H, He",
+        "satellites": 0,
+        "probes": 0
+    },
+    {
+        "name": "Moon",
+        "radius": 1737.1,
+        "mass": 7.3477e+22,
+        "distance": 384400,
+        "atmosphere": "N2, O2",
+        "satellites": 0,
+        "probes": 0
+    },
+])
