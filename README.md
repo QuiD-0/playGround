@@ -24,6 +24,10 @@
 │   ├── Kotlin
 │   │   └── kotlin을 배우며 정리
 │   │
+│   ├── MongoDB
+│   │   └── MongoDB 실습 쿼리 정리
+│   │
+│   │
 │   ├── openAi
 │   │   └── openAi를 이용한 간단한 텍스트 IO 컨트롤러
 │   │
