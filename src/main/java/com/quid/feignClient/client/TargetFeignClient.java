@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 @FeignClient(name = "feignClient", url = "http://localhost:8080/target")
-public interface FeignDemoClient {
+public interface TargetFeignClient {
 
     @GetMapping("/get")
     ResponseEntity<BaseRes> callGet(@RequestHeader("CustomHeaderName") String customHeader,

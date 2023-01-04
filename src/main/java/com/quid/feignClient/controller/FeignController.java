@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/feign")
-public class DemoController {
+public class FeignController {
 
     private final FeignService feignService;
 
