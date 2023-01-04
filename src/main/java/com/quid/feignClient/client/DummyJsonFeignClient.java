@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "dummyJsonClient", url = "https://dummyjson.com/products")
 public interface DummyJsonFeignClient {
 
-    @GetMapping("{id}")
-    ResponseEntity<ProductRes> getDummyJson(@PathVariable String id);
+    @GetMapping("/{id}")
+    ResponseEntity<ProductRes> getDummyJson(@PathVariable(name = "id") String id);
 }

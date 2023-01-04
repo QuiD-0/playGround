@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 public class FeignService {
 
     private final TargetFeignClient targetFeignClient;
-
     private final DummyJsonFeignClient dummyJsonFeignClient;
 
     public ResponseEntity<BaseRes> callGet() {
@@ -22,7 +21,6 @@ public class FeignService {
             .name("quid").age(25L).build();
         return targetFeignClient.callGet("CustomHeader", baseReq);
     }
-
 
     public ResponseEntity<ProductRes> callDummyJson(String id) {
         return dummyJsonFeignClient.getDummyJson(id);
