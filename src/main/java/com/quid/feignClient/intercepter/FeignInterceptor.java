@@ -18,6 +18,8 @@ public class FeignInterceptor implements RequestInterceptor {
     public void apply(RequestTemplate template) {
         if (template.body() == null) {
             log.info("Request body is null");
+            log.info("Request method: {}", template.method());
+            log.info("Request queries: {}", template.queries());
             return;
         }
 
@@ -28,7 +30,7 @@ public class FeignInterceptor implements RequestInterceptor {
             return;
         }
         if (Objects.equals(template.method(), HttpMethod.POST.name())) {
-            log.info("[POST] [FeignInterceptor] body: {}", template.body());
+            log.info("[POST] [FeignInterceptor] body: {}", body);
             //필요한 로직 추가
         }
     }
