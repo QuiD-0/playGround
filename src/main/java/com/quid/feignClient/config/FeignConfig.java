@@ -2,6 +2,7 @@ package com.quid.feignClient.config;
 
 import com.quid.feignClient.intercepter.FeignInterceptor;
 import com.quid.feignClient.logger.FeignLogger;
+import feign.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,7 +15,7 @@ public class FeignConfig {
     }
 
     @Bean
-    public FeignLogger feignLogger() {
+    public Logger feignLogger() {
         return FeignLogger.of();
     }
 }
