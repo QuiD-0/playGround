@@ -1,4 +1,4 @@
-package com.quid.feignClient.logger;
+package com.quid.feignClient.config;
 
 import feign.Logger;
 import feign.Request;

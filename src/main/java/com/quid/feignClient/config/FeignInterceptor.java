@@ -1,4 +1,4 @@
-package com.quid.feignClient.intercepter;
+package com.quid.feignClient.config;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 

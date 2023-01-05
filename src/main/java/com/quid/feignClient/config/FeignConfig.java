@@ -1,7 +1,5 @@
 package com.quid.feignClient.config;
 
-import com.quid.feignClient.intercepter.FeignInterceptor;
-import com.quid.feignClient.logger.FeignLogger;
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
