@@ -14,4 +14,7 @@ public interface TargetFeignClient {
     @GetMapping("/get")
     ResponseEntity<BaseRes> callGet(@RequestHeader("CustomHeaderName") String customHeader,
         @RequestBody BaseReq baseReq);
+
+    @GetMapping("/error")
+    void callError();
 }

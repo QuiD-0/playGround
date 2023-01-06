@@ -25,4 +25,9 @@ public class FeignService {
     public ResponseEntity<ProductRes> callDummyJson(String id) {
         return dummyJsonFeignClient.getDummyJson(id);
     }
+
+    public String callError() {
+        targetFeignClient.callError();
+        return "error";
+    }
 }

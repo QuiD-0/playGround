@@ -25,4 +25,9 @@ public class FeignController {
     public ProductRes dummy(@PathVariable String id) {
         return feignService.callDummyJson(id).getBody();
     }
+
+    @GetMapping("/error")
+    public String error() {
+        return feignService.callError();
+    }
 }
