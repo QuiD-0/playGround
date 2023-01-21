@@ -30,4 +30,9 @@ public class FeignController {
     public String error() {
         return feignService.callError();
     }
+
+    @GetMapping("/async")
+    public String async() {
+        return feignService.callAsync();
+    }
 }
