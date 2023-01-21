@@ -2,7 +2,6 @@ package com.quid.feignClient.client;
 
 import com.quid.feignClient.model.BaseReq;
 import com.quid.feignClient.model.BaseRes;
-import java.util.concurrent.CompletableFuture;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,5 +19,5 @@ public interface TargetFeignClient {
     void callError();
 
     @GetMapping("/async")
-    CompletableFuture<String> callAsync();
+    String callAsync();
 }
