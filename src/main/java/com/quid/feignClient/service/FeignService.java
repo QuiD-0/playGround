@@ -7,7 +7,9 @@ import com.quid.feignClient.model.BaseReq;
 import com.quid.feignClient.model.BaseRes;
 import com.quid.feignClient.model.ProductRes;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -34,10 +36,16 @@ public class FeignService {
 
     @Timer
     public String callAsync() {
-        for (int i = 0; i < 10; i++) {
-            CompletableFuture.supplyAsync(targetFeignClient::callAsync)
-                .thenAccept((e) -> System.out.println(e + "done"));
-        }
+        IntStream.range(0, 10)
+            .forEach(i -> CompletableFuture.supplyAsync(targetFeignClient::callAsync)
+                .thenAccept((e) -> System.out.println(e + "done")));
         return "async";
+    }
+
+    @SneakyThrows
+    public ProductRes returnAsync(){
+        ResponseEntity<ProductRes> productResResponseEntity = CompletableFuture.supplyAsync(
+            () -> dummyJsonFeignClient.getDummyJson("1")).get();
+        return productResResponseEntity.getBody();
     }
 }

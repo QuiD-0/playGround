@@ -35,4 +35,9 @@ public class FeignController {
     public String async() {
         return feignService.callAsync();
     }
+
+    @GetMapping("/returnAsync")
+    public ProductRes returnAsync() {
+        return feignService.returnAsync();
+    }
 }
