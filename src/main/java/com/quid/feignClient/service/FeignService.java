@@ -1,15 +1,15 @@
 package com.quid.feignClient.service;
 
-import com.quid.aop.timer.Timer;
 import com.quid.feignClient.client.DummyJsonFeignClient;
 import com.quid.feignClient.client.TargetFeignClient;
 import com.quid.feignClient.model.BaseReq;
 import com.quid.feignClient.model.BaseRes;
 import com.quid.feignClient.model.ProductRes;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -34,18 +34,22 @@ public class FeignService {
         return "error";
     }
 
-    @Timer
     public String callAsync() {
-        IntStream.range(0, 10)
-            .forEach(i -> CompletableFuture.supplyAsync(targetFeignClient::callAsync)
+        IntStream.range(0, 10).forEach(
+            i -> CompletableFuture.supplyAsync(targetFeignClient::callAsync)
                 .thenAccept((e) -> System.out.println(e + "done")));
         return "async";
     }
 
-    @SneakyThrows
-    public ProductRes returnAsync(){
-        ResponseEntity<ProductRes> productResResponseEntity = CompletableFuture.supplyAsync(
-            () -> dummyJsonFeignClient.getDummyJson("1")).get();
-        return productResResponseEntity.getBody();
+    public ProductRes returnAsync() {
+        return CompletableFuture.supplyAsync(() -> dummyJsonFeignClient.getDummyJson("1"))
+            .thenApply(ResponseEntity::getBody).join();
+    }
+
+    public List<ProductRes> returnAsyncList() {
+        return IntStream.range(1, 100).parallel().mapToObj(num -> CompletableFuture.supplyAsync(
+                () -> dummyJsonFeignClient.getDummyJson(String.valueOf(num)),
+                Executors.newFixedThreadPool(10)).thenApply(ResponseEntity::getBody))
+            .map(CompletableFuture::join).toList();
     }
 }

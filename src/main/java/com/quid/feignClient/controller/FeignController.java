@@ -3,6 +3,7 @@ package com.quid.feignClient.controller;
 import com.quid.feignClient.model.BaseRes;
 import com.quid.feignClient.model.ProductRes;
 import com.quid.feignClient.service.FeignService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,5 +40,10 @@ public class FeignController {
     @GetMapping("/returnAsync")
     public ProductRes returnAsync() {
         return feignService.returnAsync();
+    }
+
+    @GetMapping("/returnAsyncList")
+    public List<ProductRes> returnAsyncList() {
+        return feignService.returnAsyncList();
     }
 }
