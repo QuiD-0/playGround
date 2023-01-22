@@ -1,12 +1,12 @@
 package com.quid.feignClient.service;
 
+import com.quid.aop.timer.Timer;
 import com.quid.feignClient.client.DummyJsonFeignClient;
 import com.quid.feignClient.client.TargetFeignClient;
 import com.quid.feignClient.model.BaseReq;
 import com.quid.feignClient.model.BaseRes;
 import com.quid.feignClient.model.ProductRes;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.IntStream;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,10 +32,12 @@ public class FeignService {
         return "error";
     }
 
+    @Timer
     public String callAsync() {
-        IntStream.range(0, 10)
-            .forEach(i -> CompletableFuture.supplyAsync(targetFeignClient::callAsync)
-                .thenAccept(System.out::println));
+        for (int i = 0; i < 10; i++) {
+            CompletableFuture.supplyAsync(targetFeignClient::callAsync)
+                .thenAccept((e) -> System.out.println(e + "done"));
+        }
         return "async";
     }
 }
