@@ -46,9 +46,4 @@ public class FeignController {
     public List<ProductRes> returnAsyncList() {
         return feignService.returnAsyncList();
     }
-
-    @GetMapping("/response")
-    public String response() {
-        return feignService.callResponse();
-    }
 }

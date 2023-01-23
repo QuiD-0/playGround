@@ -6,6 +6,7 @@ import com.quid.feignClient.model.BaseReq;
 import com.quid.feignClient.model.BaseRes;
 import com.quid.feignClient.model.ProductRes;
 import feign.Response;
+import feign.Response.Body;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
@@ -54,9 +55,4 @@ public class FeignService {
             .map(CompletableFuture::join).toList();
     }
 
-    public String callResponse() {
-        Response dummy = dummyJsonFeignClient.getDummy("1");
-        System.out.println(dummy);
-        return "response";
-    }
 }
