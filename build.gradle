@@ -54,6 +54,7 @@ dependencies {
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	implementation 'com.github.I-JUNNYLAND-I:libs:0.0.3'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	implementation 'io.github.resilience4j:resilience4j-spring-boot2:1.7.1'
 }
 
 tasks.named('test') {
