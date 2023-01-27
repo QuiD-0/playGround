@@ -55,11 +55,13 @@ dependencies {
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	implementation 'com.github.I-JUNNYLAND-I:libs:0.0.3'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-	compile 'io.github.resilience4j:resilience4j-spring-boot2'
-	compile 'org.springframework.boot:spring-boot-starter-aop'
+
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	compile 'io.github.resilience4j:resilience4j-retry'
-	implementation 'io.github.resilience4j:resilience4j-circuitbreaker'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+	implementation 'io.github.resilience4j:resilience4j-spring-boot2:1.7.0'
+
+	implementation 'io.github.resilience4j:resilience4j-retry:1.7.0'
+	implementation 'io.github.resilience4j:resilience4j-circuitbreaker:1.7.0'
 }
 
 tasks.named('test') {

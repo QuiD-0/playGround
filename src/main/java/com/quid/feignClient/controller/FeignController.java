@@ -2,6 +2,7 @@ package com.quid.feignClient.controller;
 
 import com.quid.feignClient.model.BaseRes;
 import com.quid.feignClient.model.ProductRes;
+import com.quid.feignClient.service.CircuitBreakerService;
 import com.quid.feignClient.service.FeignService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeignController {
 
     private final FeignService feignService;
+    private final CircuitBreakerService circuitBreakerService;
 
     @GetMapping("/get")
     public BaseRes get() {
@@ -45,5 +47,15 @@ public class FeignController {
     @GetMapping("/returnAsyncList")
     public List<ProductRes> returnAsyncList() {
         return feignService.returnAsyncList();
+    }
+
+    @GetMapping("/circuitBreaker")
+    public void sleep() {
+        circuitBreakerService.callCircuitBreaker();
+    }
+
+    @GetMapping("/retry")
+    public void retry() {
+        circuitBreakerService.callRetry();
     }
 }

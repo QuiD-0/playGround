@@ -16,7 +16,7 @@ public class FeignLogger extends Logger {
 
     @Override
     protected void log(String configKey, String format, Object... args) {
-//        System.out.printf(methodTag(configKey) + format + "%n", args);
+        System.out.printf(methodTag(configKey) + format + "%n", args);
     }
 
     @Override

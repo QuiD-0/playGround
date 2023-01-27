@@ -39,10 +39,29 @@ feign:
       default:
         connectTimeout: 5000
         readTimeout: 5000
-        loggerLevel: FULL
+        loggerLevel: basic
 
 
 logging:
   level:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
+
+resilience4j:
+  retry:
+    configs:
+      default:
+        waitDuration: 5000
+        maxAttempts: 3
+  circuitbreaker:
+    configs:
+      default:
+        registerHealthIndicator: true
+        slidingWindowType: TIME_BASED
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 10
+        slowCallRateThreshold: 100
+        slowCallDurationThreshold: 60000
+        failureRateThreshold: 50
+        permittedNumberOfCallsInHalfOpenState: 10
+        waitDurationInOpenState: 10s

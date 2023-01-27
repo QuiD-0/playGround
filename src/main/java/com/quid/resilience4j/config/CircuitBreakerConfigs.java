@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class CircuitBreaker {
+public class CircuitBreakerConfigs {
 
     @Bean
     CircuitBreakerConfig circuitBreakerConfig() {
@@ -15,7 +15,9 @@ public class CircuitBreaker {
             .waitDurationInOpenState(Duration.ofMillis(1000))
             .ringBufferSizeInHalfOpenState(2)
             .ringBufferSizeInClosedState(2)
+            .slowCallDurationThreshold(Duration.ofMillis(4000))
             .build();
     }
+
 
 }
