@@ -21,7 +21,7 @@ public class FeignLogger extends Logger {
 
     @Override
     protected void logRequest(String configKey, Level logLevel, Request request) {
-        log.info("Request: " + request.toString());
+        log.info("Request: " + request.url());
     }
 
     @Override

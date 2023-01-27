@@ -1,4 +1,4 @@
-package com.quid.feignClient.service;
+package com.quid.resilience4j.service;
 
 import com.quid.feignClient.client.TargetFeignClient;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -8,15 +8,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CircuitBreakerService {
+public class Resilience4jService {
 
     private final TargetFeignClient targetFeignClient;
 
     @CircuitBreaker(name = "circuitBreaker", fallbackMethod = "fallback")
     public void callCircuitBreaker() {
         System.out.println(targetFeignClient.sendRequest(1000));
+        System.out.println(targetFeignClient.sendRequest(3000));
+        System.out.println(targetFeignClient.sendRequest(4000));
+        System.out.println(targetFeignClient.sendRequest(5000));
         System.out.println(targetFeignClient.sendRequest(6000));
-        System.out.println(targetFeignClient.sendRequest(1000));
     }
 
     private void fallback(Throwable t) {
@@ -29,8 +31,7 @@ public class CircuitBreakerService {
     }
 
     private void retryFallback(Throwable t) {
-        System.out.println("retryFallback");
+        System.out.println("[retryFallback] :" + t.getMessage());
     }
-
 
 }
