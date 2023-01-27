@@ -5,8 +5,6 @@ import com.quid.feignClient.client.TargetFeignClient;
 import com.quid.feignClient.model.BaseReq;
 import com.quid.feignClient.model.BaseRes;
 import com.quid.feignClient.model.ProductRes;
-import feign.Response;
-import feign.Response.Body;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
@@ -22,13 +20,13 @@ public class FeignService {
     private final TargetFeignClient targetFeignClient;
     private final DummyJsonFeignClient dummyJsonFeignClient;
 
-    public ResponseEntity<BaseRes> callGet() {
+    public BaseRes callGet() {
         BaseReq baseReq = BaseReq.builder().name("quid").age(25L).build();
-        return targetFeignClient.callGet("CustomHeader", baseReq);
+        return targetFeignClient.callGet("CustomHeader", baseReq).getBody();
     }
 
-    public ResponseEntity<ProductRes> callDummyJson(String id) {
-        return dummyJsonFeignClient.getDummyJson(id);
+    public ProductRes callDummyJson(String id) {
+        return dummyJsonFeignClient.getDummyJson(id).getBody();
     }
 
     public String callError() {

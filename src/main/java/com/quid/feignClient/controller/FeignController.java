@@ -19,12 +19,12 @@ public class FeignController {
 
     @GetMapping("/get")
     public BaseRes get() {
-        return feignService.callGet().getBody();
+        return feignService.callGet();
     }
 
     @GetMapping("/dummy/{id}")
     public ProductRes dummy(@PathVariable String id) {
-        return feignService.callDummyJson(id).getBody();
+        return feignService.callDummyJson(id);
     }
 
     @GetMapping("/error")
