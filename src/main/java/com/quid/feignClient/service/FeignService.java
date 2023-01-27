@@ -37,7 +37,8 @@ public class FeignService {
     public String callAsync() {
         IntStream.range(0, 10).forEach(
             i -> CompletableFuture.supplyAsync(targetFeignClient::callAsync)
-                .thenAccept((e) -> System.out.println(e + "done")));
+                .thenAccept(System.out::println)
+                .exceptionally(this::apply));
         return "async";
     }
 
@@ -47,10 +48,17 @@ public class FeignService {
     }
 
     public List<ProductRes> returnAsyncList() {
-        return IntStream.range(1, 100).parallel().mapToObj(num -> CompletableFuture.supplyAsync(
-                () -> dummyJsonFeignClient.getDummyJson(String.valueOf(num)),
-                Executors.newFixedThreadPool(10)).thenApply(ResponseEntity::getBody))
+        return IntStream.range(0, 10).parallel().mapToObj(num -> CompletableFuture.supplyAsync(
+                    () -> dummyJsonFeignClient.getDummyJson(String.valueOf(num)),
+                    Executors.newFixedThreadPool(10))
+                .thenApply(ResponseEntity::getBody)
+                .exceptionally(this::apply))
             .map(CompletableFuture::join).toList();
+    }
+
+    private <T> T apply(Throwable e) {
+        System.out.println(e.getMessage());
+        return null;
     }
 
 }
