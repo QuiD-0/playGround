@@ -1,6 +1,7 @@
 buildscript {
 	ext {
 		queryDslVersion = "5.0.0"
+		resilience4jVersion = "1.7.0"
 	}
 }
 
@@ -53,7 +54,12 @@ dependencies {
 	implementation 'org.springframework.kafka:spring-kafka'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	implementation 'com.github.I-JUNNYLAND-I:libs:0.0.3'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	compile 'io.github.resilience4j:resilience4j-spring-boot2'
+	compile 'org.springframework.boot:spring-boot-starter-aop'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	compile 'io.github.resilience4j:resilience4j-retry'
+	implementation 'io.github.resilience4j:resilience4j-circuitbreaker'
 }
 
 tasks.named('test') {
