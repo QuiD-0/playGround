@@ -14,10 +14,6 @@ public class Resilience4jService {
 
     @CircuitBreaker(name = "circuitBreaker", fallbackMethod = "fallback")
     public void callCircuitBreaker() {
-        System.out.println(targetFeignClient.sendRequest(1000));
-        System.out.println(targetFeignClient.sendRequest(3000));
-        System.out.println(targetFeignClient.sendRequest(4000));
-        System.out.println(targetFeignClient.sendRequest(5000));
         System.out.println(targetFeignClient.sendRequest(6000));
     }
 
