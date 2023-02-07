@@ -5,7 +5,7 @@
 ├── src.main.java.com.quid
 │   │
 │   ├── Design Pattern
-│   │   └── 준비중
+│   │   └── 다양한 디자인 패턴을 구현해보는 공간입니다.
 │   │
 │   ├── DockerCompose
 │   │   └── compose 간단 설정 정리 / mySQL, kafka, redis
