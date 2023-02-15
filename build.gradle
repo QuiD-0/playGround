@@ -12,14 +12,18 @@ plugins {
 	id 'java'
 }
 
+ext {
+	set('springCloudVersion', "2021.0.2")
+}
+
 group = 'com.quid'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
 configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
 }
 
 repositories {
@@ -64,6 +68,13 @@ dependencies {
 	implementation 'io.github.resilience4j:resilience4j-circuitbreaker:1.7.0'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
 }
 
 tasks.named('test') {

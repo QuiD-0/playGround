@@ -21,8 +21,12 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.authorizeHttpRequests(auth -> auth.mvcMatchers(
-                HttpMethod.GET, "/", "/articles").permitAll().anyRequest().authenticated())
+        return http.authorizeHttpRequests(auth -> auth
+//                .mvcMatchers(HttpMethod.GET, "/", "/articles")
+//            개발용 설정
+                .mvcMatchers(HttpMethod.GET, "/**")
+                .permitAll()
+                .anyRequest().authenticated())
             .formLogin().and()
             .csrf().disable()
             .logout().logoutSuccessUrl("/").and()
