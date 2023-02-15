@@ -12,12 +12,16 @@ public class Client {
 
     @Test
     public void factory() {
-        printShip(new BlackShipFactory(), "quid", "quid@mail.com");
-        printShip(new WhiteShipFactory(), "quid", "quid@mail.com");
+        printShip("white", "quid", "quid@mail.com");
+
     }
 
-    private void printShip(ShipFactory shipFactory, String name, String email) {
-        this.shipFactory = shipFactory;
+    private void printShip(String color, String name, String email) {
+        switch (color) {
+            case "white" -> shipFactory = new WhiteShipFactory();
+            case "black" -> shipFactory = new BlackShipFactory();
+            default -> throw new IllegalArgumentException("Unknown color");
+        }
         Ship ship = shipFactory.orderShip(name, email);
         System.out.println(ship.getColor());
     }
