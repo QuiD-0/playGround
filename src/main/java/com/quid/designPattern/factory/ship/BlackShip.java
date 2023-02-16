@@ -1,13 +1,17 @@
 package com.quid.designPattern.factory.ship;
 
+import com.quid.designPattern.factory.parts.Anchor;
+
 public class BlackShip implements Ship {
 
     private String name;
     private String color;
+    private Anchor anchor;
 
-    public BlackShip(String name) {
+    public BlackShip(String name, Anchor anchor) {
         this.name = name;
         this.color = "Black";
+        this.anchor = anchor;
     }
 
     @Override
@@ -18,5 +22,10 @@ public class BlackShip implements Ship {
     @Override
     public String getColor() {
         return color;
+    }
+
+    @Override
+    public Anchor getAnchor() {
+        return anchor;
     }
 }

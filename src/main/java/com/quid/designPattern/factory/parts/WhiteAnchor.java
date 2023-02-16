@@ -1,4 +1,4 @@
-package com.quid.designPattern.abstractFactory.parts;
+package com.quid.designPattern.factory.parts;
 
 public class WhiteAnchor implements Anchor {
 
