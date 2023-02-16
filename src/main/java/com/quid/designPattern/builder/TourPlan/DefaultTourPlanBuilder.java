@@ -1,7 +1,5 @@
-package com.quid.designPattern.builder;
+package com.quid.designPattern.builder.TourPlan;
 
-import com.quid.designPattern.builder.TourPlan.DetailPlan;
-import com.quid.designPattern.builder.TourPlan.TourPlan;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,6 @@
 package com.quid.designPattern.builder;
 
+import com.quid.designPattern.builder.TourPlan.DefaultTourPlanBuilder;
 import com.quid.designPattern.builder.TourPlan.TourPlan;
 import org.junit.jupiter.api.Test;
 
