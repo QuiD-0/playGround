@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.webjars.NotFoundException;
 
 @Configuration
 public class SecurityConfig {
@@ -25,6 +24,8 @@ public class SecurityConfig {
 //                .mvcMatchers(HttpMethod.GET, "/", "/articles")
 //            개발용 설정
                 .mvcMatchers(HttpMethod.GET, "/**")
+                .permitAll()
+                .mvcMatchers(HttpMethod.POST, "/**")
                 .permitAll()
                 .anyRequest().authenticated())
             .formLogin().and()
@@ -44,7 +45,7 @@ public class SecurityConfig {
         return username -> userRepository.findById(username)
             .map(UserDto::fromUser)
             .map(BoardPrincipal::toPrincipal)
-            .orElseThrow(() -> new NotFoundException("해당 사용자를 찾을 수 없습니다."));
+            .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     @Bean
