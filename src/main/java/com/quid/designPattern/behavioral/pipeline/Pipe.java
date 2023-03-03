@@ -1,5 +1,6 @@
 package com.quid.designPattern.behavioral.pipeline;
 
+@FunctionalInterface
 public interface Pipe<I> {
 
     I execute(I input);
