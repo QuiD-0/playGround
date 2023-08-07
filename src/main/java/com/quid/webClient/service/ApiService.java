@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 public interface ApiService {
-    Mono<TodoResponse> execute(Long id);
+    Mono<TodoResponse> getTodo(Long id);
 
     @Service
     class ApiServiceImpl implements ApiService {
@@ -18,7 +18,7 @@ public interface ApiService {
         }
 
         @Override
-        public Mono<TodoResponse> execute(Long id) {
+        public Mono<TodoResponse> getTodo(Long id) {
             return jsonPlaceHolderClient.getTodoById(id);
         }
     }
