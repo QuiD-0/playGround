@@ -16,7 +16,12 @@ public class ApiController {
     private final ApiService apiService;
 
     @RequestMapping("/{id}")
-    public Mono<TodoResponse> test(@PathVariable("id") Long id) {
+    public Mono<TodoResponse> getTodo(@PathVariable("id") Long id) {
         return apiService.getTodo(id);
+    }
+
+    @RequestMapping("/log")
+    public void log() {
+        apiService.log();
     }
 }

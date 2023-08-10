@@ -8,6 +8,8 @@ import reactor.core.publisher.Mono;
 public interface ApiService {
     Mono<TodoResponse> getTodo(Long id);
 
+    void log();
+
     @Service
     class ApiServiceImpl implements ApiService {
 
@@ -20,6 +22,11 @@ public interface ApiService {
         @Override
         public Mono<TodoResponse> getTodo(Long id) {
             return jsonPlaceHolderClient.getTodoById(id);
+        }
+
+        @Override
+        public void log() {
+            jsonPlaceHolderClient.log();
         }
     }
 

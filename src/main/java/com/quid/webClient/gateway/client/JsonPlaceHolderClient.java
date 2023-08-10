@@ -10,6 +10,8 @@ public interface JsonPlaceHolderClient {
 
     Mono<TodoResponse> getTodoById(Long id);
 
+    void log();
+
     @Component
     @RequiredArgsConstructor
     class JsonPlaceHolderClientImpl implements JsonPlaceHolderClient {
@@ -23,5 +25,14 @@ public interface JsonPlaceHolderClient {
                 .retrieve()
                 .bodyToMono(TodoResponse.class);
             }
+
+        @Override
+        public void log() {
+            jsonPlaceHolderWebClient.get()
+                .uri("/{id}", 1)
+                .retrieve()
+                .bodyToMono(TodoResponse.class)
+                .subscribe(System.out::println);
+        }
     }
 }
