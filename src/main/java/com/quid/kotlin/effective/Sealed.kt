@@ -1,9 +1,8 @@
 package com.quid.kotlin.effective
 
 fun main() {
-    val app: App = getRandomApp()
-    when (app) {
-        is Android -> app.androidFunction()
+    when (val app: App = getRandomApp()) {
+        is Android -> app.androidFunction { "test" }
         is IOS -> app.iosFunction()
         is Web -> app.webFunction()
     }
@@ -26,7 +25,9 @@ data class Android(val name: String) : App {
         return "Android"
     }
 
-    fun androidFunction() = println("androidFunction")
+    fun androidFunction(function: () -> String) {
+        println("${function()} android")
+    }
 }
 
 data class IOS(val name: String) : App {
