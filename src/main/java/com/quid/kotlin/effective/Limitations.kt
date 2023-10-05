@@ -1,4 +1,4 @@
-package com.quid.kotlin.limitation
+package com.quid.kotlin.effective
 
 fun main() {
 
