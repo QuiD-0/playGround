@@ -24,7 +24,7 @@
 │   │   ├── RxJava
 │   │   └── Thread
 │   │
-│   ├── JTW 
+│   ├── JWT 
 │   │   └── header, payload, signature 구조로 된 간단한 JWT Kotlin으로 직접 구현
 │   │
 │   ├── Kotlin
