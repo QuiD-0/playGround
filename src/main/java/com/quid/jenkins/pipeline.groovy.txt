@@ -1,0 +1,90 @@
+===== parallel =====
+
+pipeline {
+    agent any
+    
+    parameters {
+        booleanParam(name : 'job1', defaultValue : 'false', description : 'job 1 deploy YN')
+        booleanParam(name : 'job2', defaultValue : 'false', description : 'job 2 deploy YN')
+        booleanParam(name : 'job3', defaultValue : 'false', description : 'job 3 deploy YN')
+    }
+    
+    stages{
+        stage('deploy'){
+            parallel{
+                stage('job-1'){
+                    when {
+                        expression {
+                            return job1 == "true"
+                        }
+                    }
+                    steps{
+                        build job: 'job-name1'
+                    }
+                }
+                stage('job-2'){
+                    when {
+                        expression {
+                            return job1 == "true"
+                        }
+                    }
+                    steps{
+                        build job: 'job-name1'
+                    }
+                }
+                stage('job-3'){
+                    when {
+                        expression {
+                            return job1 == "true"
+                        }
+                    }
+                    steps{
+                        build job: 'job-name1'
+                    }
+                }
+            }
+        }
+    }
+}
+
+===== non-parallel =====
+
+pipeline {
+    agent any
+    
+    parameters {
+        booleanParam(name : 'job1', defaultValue : 'false', description : 'job 1 deploy YN')
+        booleanParam(name : 'job2', defaultValue : 'false', description : 'job 2 deploy YN')
+    }
+    
+    stages('deploy'){
+        stage('job-1'){
+            when {
+                expression {
+                    return job1 == "true"
+                }
+            }
+            steps{
+                timeout(time: 300, unit: 'SECONDS'){
+                    build job: 'job-name1'
+                }
+                
+            }
+        }
+        stage('job-2'){
+            when {
+                expression {
+                    return job2 == "true"
+                }
+            }
+            steps{
+                timeout(time: 300, unit: 'SECONDS'){
+                    build job: 'job-name2'
+                }
+            }
+        }
+    }
+}
+
+
+
