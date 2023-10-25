@@ -4,9 +4,4 @@ spring:
   profiles:
     active: local
   config:
-    import: optional:configserver:http://130.162.136.116:8888
-
-  cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
+    import: optional:configserver:config.jaeung.dev
