@@ -7,19 +7,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class JsonPlaceHolderConfig {
 
-    private final WebClient webClient;
-
-    public JsonPlaceHolderConfig() {
-        this.webClient = WebClient.builder()
+    @Bean
+    public WebClient jsonPlaceHolderWebClient() {
+        return WebClient.builder()
             .baseUrl("https://jsonplaceholder.typicode.com/todos/")
             .defaultHeader("Content-Type", "application/json")
             .build();
     }
-
-    @Bean
-    public WebClient jsonPlaceHolderWebClient() {
-        return new JsonPlaceHolderConfig().webClient;
-    }
-
 
 }
