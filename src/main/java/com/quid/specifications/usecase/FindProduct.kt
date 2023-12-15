@@ -13,12 +13,10 @@ interface FindProduct {
     class FindProductUseCase(
         private val productRepository: ProductRepository
     ): FindProduct {
-        override fun allBy(condition: ProductSearchRequest): List<Product> {
-            TODO()
-        }
+        override fun allBy(condition: ProductSearchRequest): List<Product> =
+            productRepository.allBy(condition.toSpecification())
 
-        override fun byId(id: Long): Product {
-            TODO()
-        }
+        override fun byId(id: Long): Product =
+            productRepository.byId(id)
     }
 }
