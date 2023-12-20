@@ -22,7 +22,7 @@ data class ProductSearchRequest(
             predicates.add(builder.like(root.get("description"), "%$it%"))
         }
         price?.let {
-            predicates.add(builder.greaterThanOrEqualTo(root.get("price"), it))
+            predicates.add(builder.equal(root.get<Long>("price"), it))
         }
         category?.let {
             predicates.add(builder.equal(root.get<String>("category"), it))
