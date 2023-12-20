@@ -10,6 +10,7 @@ data class ProductSearchRequest(
     val description: String?,
     val price: Int?,
     val category: String?,
+    val categoryCode: String?,
     val regDate: LocalDateTime?,
 ) {
     fun toSpecification(): Specification<ProductEntity> = Specification<ProductEntity> { root, query, builder ->
@@ -25,6 +26,9 @@ data class ProductSearchRequest(
         }
         category?.let {
             predicates.add(builder.equal(root.get<String>("category"), it))
+        }
+        categoryCode?.let {
+            predicates.add(builder.equal(root.get<String>("categoryCode"), it))
         }
         regDate?.let {
             predicates.add(builder.greaterThanOrEqualTo(root.get("regDate"), it))
