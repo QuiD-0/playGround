@@ -3,6 +3,7 @@ package com.quid.specifications.gateway.repository.jpa
 import com.quid.specifications.domain.Category
 import com.quid.specifications.domain.Product
 import junny.land.xlsx.annotation.Column
+import org.hibernate.annotations.Where
 import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -12,6 +13,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "PRODUCT")
+@Where(clause = "IS_DISPLAYED = true")
 class ProductEntity(
     @Id
     @Column("ID")
