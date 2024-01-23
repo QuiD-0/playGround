@@ -13,22 +13,14 @@ data class ProductSearchRequest(
     val regDate: LocalDateTime?,
 ) {
     fun toSpecification(): Specification<ProductEntity> = Specification<ProductEntity> { root, query, builder ->
-        val predicates = mutableListOf<Predicate>()
-        name?.let {
-            predicates.add(builder.like(root.get("name"), "%$it%"))
-        }
-        description?.let {
-            predicates.add(builder.like(root.get("description"), "%$it%"))
-        }
-        price?.let {
-            predicates.add(builder.greaterThanOrEqualTo(root.get("price"), it))
-        }
-        category?.let {
-            predicates.add(builder.equal(root.get<String>("category"), it))
-        }
-        regDate?.let {
-            predicates.add(builder.greaterThanOrEqualTo(root.get("regDate"), it))
-        }
-        builder.and(*predicates.toTypedArray())
+        mutableListOf<Predicate>().apply {
+            name?.let { add(builder.equal(root.get<String>("name"), it)) }
+            description?.let { add(builder.equal(root.get<String>("description"), it)) }
+            price?.let { add(builder.equal(root.get<Int>("price"), it)) }
+            category?.let { add(builder.equal(root.get<String>("category"), it)) }
+            regDate?.let { add(builder.equal(root.get<LocalDateTime>("regDate"), it)) }
+            query.orderBy(builder.desc(root.get<LocalDateTime>("regDate")))
+        }.let { builder.and(*it.toTypedArray()) }
+
     }
 }
