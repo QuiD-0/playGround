@@ -1,12 +1,9 @@
 package com.quid.webClient.gateway.client;
 
 import com.quid.webClient.model.TodoResponse;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-
-import java.util.List;
 
 public interface JsonPlaceHolderClient {
 
@@ -15,10 +12,13 @@ public interface JsonPlaceHolderClient {
     void log();
 
     @Component
-    @RequiredArgsConstructor
     class JsonPlaceHolderClientImpl implements JsonPlaceHolderClient {
 
         private final WebClient jsonPlaceHolderWebClient;
+
+        public JsonPlaceHolderClientImpl(WebClient jsonPlaceHolderWebClient) {
+            this.jsonPlaceHolderWebClient = jsonPlaceHolderWebClient;
+        }
 
         @Override
         public Mono<TodoResponse> getTodoById(Long id) {

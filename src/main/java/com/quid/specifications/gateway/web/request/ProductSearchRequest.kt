@@ -3,7 +3,7 @@ package com.quid.specifications.gateway.web.request
 import com.quid.specifications.gateway.repository.jpa.ProductEntity
 import org.springframework.data.jpa.domain.Specification
 import java.time.LocalDateTime
-import javax.persistence.criteria.Predicate
+import jakarta.persistence.criteria.Predicate
 
 data class ProductSearchRequest(
     val name: String?,
