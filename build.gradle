@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '3.2.2'
+	id 'org.springframework.boot' version '3.2.0'
 	id 'io.spring.dependency-management' version '1.1.4'
     id 'org.jetbrains.kotlin.jvm' version '1.9.22'
 	id 'org.jetbrains.kotlin.plugin.spring' version '1.9.22'
@@ -7,7 +7,7 @@ plugins {
 }
 
 ext {
-	set('springCloudVersion', "2022.0.5")
+	set('springCloudVersion', "2022.0.1")
 }
 
 group = 'com.quid'
@@ -20,16 +20,16 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.mysql:mysql-connector-j'
 	implementation 'io.reactivex.rxjava3:rxjava'
-	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
-	implementation 'io.github.resilience4j:resilience4j-spring-boot2'
 	implementation 'org.apiguardian:apiguardian-api:1.1.0'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+	implementation "org.jetbrains.kotlin:kotlin-reflect"
 	implementation 'org.junit.jupiter:junit-jupiter-api'
 
 	compileOnly 'org.projectlombok:lombok'
