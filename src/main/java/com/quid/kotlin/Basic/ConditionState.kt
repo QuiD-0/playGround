@@ -2,6 +2,7 @@ package com.quid.kotlin.basic
 
 import org.junit.jupiter.api.Test
 
+
 class ConditionState() {
 
     @Test
