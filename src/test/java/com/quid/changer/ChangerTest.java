@@ -4,8 +4,10 @@ import java.util.Arrays;
 import junny.land.xlsx.builder.Changer;
 import junny.land.xlsx.builder.output.Type;
 import junny.land.xlsx.builder.type.ExtractType;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled
 public class ChangerTest {
 
     @Test

@@ -7,12 +7,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        use_sql_comments: true
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
   datasource:
-    url: jdbc:mysql://localhost:3306/playGround
+    url: jdbc:mysql://localhost:3306/playground?useSSL=false
     username: root
     password: LOCAL_TEST
+    driver-class-name: com.mysql.cj.jdbc.Driver
+

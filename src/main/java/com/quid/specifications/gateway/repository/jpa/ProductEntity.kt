@@ -2,36 +2,32 @@ package com.quid.specifications.gateway.repository.jpa
 
 import com.quid.specifications.domain.Category
 import com.quid.specifications.domain.Product
-import junny.land.xlsx.annotation.Column
+import jakarta.persistence.*
 import org.hibernate.annotations.Where
 import java.time.LocalDateTime
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType.IDENTITY
-import jakarta.persistence.Id
-import jakarta.persistence.Table
 
 @Entity
 @Table(name = "PRODUCT")
 @Where(clause = "IS_DISPLAYED = true")
 class ProductEntity(
     @Id
-    @Column("ID")
+    @Column(name = "ID")
     @GeneratedValue(strategy = IDENTITY)
     val id: Long? = null,
-    @Column("NAME")
+    @Column(name = "NAME")
     val name: String,
-    @Column("DESCRIPTION")
+    @Column(name = "DESCRIPTION")
     val description: String,
-    @Column("PRICE")
+    @Column(name = "PRICE")
     val price: Int,
-    @Column("CATEGORY")
+    @Column(name = "CATEGORY")
     val category: String,
-    @Column("CATEGORY_CODE")
+    @Column(name = "CATEGORY_CODE")
     val categoryCode: String,
-    @Column("IS_DISPLAYED")
+    @Column(name = "IS_DISPLAYED")
     val isDisplayed: Boolean,
-    @Column("REG_DATE")
+    @Column(name = "REG_DATE")
     val regDate: LocalDateTime,
 ) {
 

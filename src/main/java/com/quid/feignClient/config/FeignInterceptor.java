@@ -7,7 +7,6 @@ import feign.RequestTemplate;
 import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpMethod;
 
 @Slf4j
@@ -23,7 +22,7 @@ public class FeignInterceptor implements RequestInterceptor {
             return;
         }
 
-        String body = StringUtils.toEncodedString(template.body(), UTF_8);
+        String body = new String(template.body(), UTF_8);
         if (Objects.equals(template.method(), HttpMethod.GET.name())) {
             log.info("[GET] [FeignInterceptor] query params: {}", template.queries());
             log.info("[GET] [FeignInterceptor] body: {}", body);
