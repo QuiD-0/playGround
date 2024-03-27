@@ -30,6 +30,16 @@ class ProductEntity(
     @Column(name = "REG_DATE")
     val regDate: LocalDateTime,
 ) {
+    constructor(product: Product): this(
+        id = product.id,
+        name = product.name,
+        description = product.description,
+        price = product.price.toInt(),
+        category = product.category.name,
+        categoryCode = product.category.code,
+        isDisplayed = product.isDisplayed,
+        regDate = product.regDate
+    )
 
     fun toDomain() = Product(
         id = id,
@@ -42,15 +52,3 @@ class ProductEntity(
     )
 
 }
-
-fun toProductEntity(product: Product) = ProductEntity(
-    id = product.id,
-    name = product.name,
-    description = product.description,
-    price = product.price.toInt(),
-    category = product.category.name,
-    categoryCode = product.category.code,
-    isDisplayed = product.isDisplayed,
-    regDate = product.regDate
-)
-

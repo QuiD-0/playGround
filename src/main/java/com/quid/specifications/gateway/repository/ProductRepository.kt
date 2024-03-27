@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository
 interface ProductRepository {
     fun allBy(specification: Specification<ProductEntity>): List<Product>
     fun byId(id: Long): Product
+    fun save(product: Product): Product
 
     @Repository
     class ProductRepositoryImpl(
@@ -22,5 +23,9 @@ interface ProductRepository {
         override fun byId(id: Long): Product =
             repository.findByIdOrNull(id)?.toDomain()
                 ?: throw IllegalArgumentException("Product not found")
+
+        override fun save(product: Product): Product {
+            return repository.save(ProductEntity(product)).toDomain()
+        }
     }
 }
