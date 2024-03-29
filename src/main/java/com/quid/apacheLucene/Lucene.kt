@@ -12,21 +12,22 @@ import java.io.File
 
 
 data class Lucene(val path: String) {
-    private val directory = fsDirectory()
-    private val config = indexWriterConfig()
 
     fun indexing(dataList: List<PersonData>) {
+        val directory = fsDirectory()
+        val config = indexWriterConfig()
         IndexWriter(directory, config).use {
             dataList.map { data -> data.toDocument() }
                 .let { docs -> it.addDocuments(docs) }
         }
     }
 
-    fun search(find: String): List<PersonData> {
+    fun search(find: String, count: Int): List<PersonData> {
+        val directory = fsDirectory()
         DirectoryReader.open(directory).use {
             val indexSearcher = IndexSearcher(it)
             val nameQuery = TermQuery(Term("name", find))
-            val result = indexSearcher.search(nameQuery, 10)
+            val result = indexSearcher.search(nameQuery, count)
 
             return result.scoreDocs
                 .map { scoreDoc -> indexSearcher.doc(scoreDoc.doc) }
