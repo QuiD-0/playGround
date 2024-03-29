@@ -1,5 +1,6 @@
 package com.quid.apacheLucene
 
+import org.apache.lucene.document.Document
 import org.apache.lucene.document.Field
 import org.apache.lucene.document.StringField
 import org.apache.lucene.document.TextField
@@ -12,6 +13,13 @@ data class PersonData(
     val city: String,
     val description: String
 ) {
+    constructor(id: Document?) : this(
+        id = UUID.fromString(id?.get("id")),
+        name = id?.get("name") ?: "",
+        city = id?.get("city") ?: "",
+        description = id?.get("description") ?: ""
+    )
+
     fun toDocument() = mutableListOf<IndexableField>().apply {
         add(TextField("id", id.toString(), Field.Store.YES))
         add(StringField("name", name, Field.Store.YES))

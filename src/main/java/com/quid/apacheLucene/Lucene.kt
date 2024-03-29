@@ -22,18 +22,15 @@ data class Lucene(val path: String) {
         }
     }
 
-    fun search(find: String) {
-        val indexSearcher = IndexSearcher(DirectoryReader.open(directory))
-        val nameQuery = TermQuery(Term("name", find))
-        val result = indexSearcher.search(nameQuery, 10)
+    fun search(find: String): List<PersonData> {
+        DirectoryReader.open(directory).use {
+            val indexSearcher = IndexSearcher(it)
+            val nameQuery = TermQuery(Term("name", find))
+            val result = indexSearcher.search(nameQuery, 10)
 
-        result.scoreDocs.map { scoreDoc ->
-            indexSearcher.doc(scoreDoc.doc).let { doc ->
-                println("id: ${doc.get("id")}")
-                println("name: ${doc.get("name")}")
-                println("city: ${doc.get("city")}")
-                println("description: ${doc.get("description")}")
-            }
+            return result.scoreDocs
+                .map { scoreDoc -> indexSearcher.doc(scoreDoc.doc) }
+                .map { doc -> PersonData(doc) }
         }
     }
 

@@ -17,6 +17,7 @@ class LuceneTest{
     fun searchWithLucene(){
         val path = "src/test/resources/index"
         val lucene = Lucene(path)
-        lucene.search("Person 1")
+        lucene.search("Person 3")
+            .also { println(it) }
     }
 }
