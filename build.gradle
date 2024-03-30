@@ -32,8 +32,6 @@ dependencies {
 	implementation "org.jetbrains.kotlin:kotlin-reflect"
 	implementation 'org.junit.jupiter:junit-jupiter-api'
 	implementation 'org.apache.lucene:lucene-core:9.1.0'
-	implementation 'org.apache.lucene:lucene-analyzers-common:9.1.0'
-	implementation 'org.apache.lucene:lucene-queryparser:9.1.0'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
