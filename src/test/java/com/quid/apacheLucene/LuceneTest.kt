@@ -19,7 +19,7 @@ class LuceneTest {
 
     @Test
     fun searchWithLucene() {
-        lucene.search("Person 3", 10)
+        lucene.search("Person*", 10)
             .also { log.info("$it") }
     }
 }

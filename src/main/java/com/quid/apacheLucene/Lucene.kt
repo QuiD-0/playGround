@@ -7,6 +7,7 @@ import org.apache.lucene.index.IndexWriterConfig
 import org.apache.lucene.index.Term
 import org.apache.lucene.search.IndexSearcher
 import org.apache.lucene.search.TermQuery
+import org.apache.lucene.search.WildcardQuery
 import org.apache.lucene.store.FSDirectory
 import java.io.File
 
@@ -26,7 +27,7 @@ data class Lucene(val path: String) {
         val directory = fsDirectory()
         DirectoryReader.open(directory).use {
             val indexSearcher = IndexSearcher(it)
-            val nameQuery = TermQuery(Term("name", find))
+            val nameQuery = WildcardQuery(Term("name", find))
             val result = indexSearcher.search(nameQuery, count)
 
             return result.scoreDocs
