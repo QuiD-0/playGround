@@ -5,8 +5,9 @@ import org.apache.lucene.index.DirectoryReader
 import org.apache.lucene.index.IndexWriter
 import org.apache.lucene.index.IndexWriterConfig
 import org.apache.lucene.index.Term
+import org.apache.lucene.search.BooleanClause.Occur
+import org.apache.lucene.search.BooleanQuery
 import org.apache.lucene.search.IndexSearcher
-import org.apache.lucene.search.TermQuery
 import org.apache.lucene.search.WildcardQuery
 import org.apache.lucene.store.FSDirectory
 import java.io.File
@@ -27,8 +28,15 @@ data class Lucene(val path: String) {
         val directory = fsDirectory()
         DirectoryReader.open(directory).use {
             val indexSearcher = IndexSearcher(it)
+            val descriptionQuery = WildcardQuery(Term("description", find))
             val nameQuery = WildcardQuery(Term("name", find))
-            val result = indexSearcher.search(nameQuery, count)
+            val cityQuery = WildcardQuery(Term("city", find))
+            val booleanQuery = BooleanQuery.Builder()
+                .add(descriptionQuery, Occur.SHOULD)
+                .add(nameQuery, Occur.SHOULD)
+                .add(cityQuery, Occur.SHOULD)
+                .build()
+            val result = indexSearcher.search(booleanQuery, count)
 
             return result.scoreDocs
                 .map { scoreDoc -> indexSearcher.doc(scoreDoc.doc) }
