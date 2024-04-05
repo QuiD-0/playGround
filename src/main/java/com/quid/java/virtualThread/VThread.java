@@ -10,12 +10,12 @@ import lombok.extern.slf4j.Slf4j;
 public class VThread {
 
     public static void main(String[] args) {
-        System.out.println("---------");
+        log.info("Starting main thread");
         try (ExecutorService e = Executors.newVirtualThreadPerTaskExecutor()) {
             e.submit(getRunnable("1"));
             e.submit(getRunnable("2"));
         }
-        System.out.println("---------");
+        log.info("Ending main thread");
     }
 
     private static Runnable getRunnable(String number) {
@@ -25,7 +25,7 @@ public class VThread {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println(number);
+            log.info("Thread {} is running", number);
         };
     }
 
