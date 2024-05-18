@@ -1,13 +1,12 @@
 package com.quid.java.record;
 
-public record Currency(String currency) {
+import jakarta.validation.constraints.NotBlank;
+
+public record Currency(@NotBlank String currency) {
 
     public Currency(String currency) {
         if (currency == null) {
             throw new NullPointerException("Currency cannot be null");
-        }
-        if (currency.isBlank()) {
-            throw new IllegalArgumentException("Currency cannot be blank");
         }
         this.currency = currency.toUpperCase();
     }

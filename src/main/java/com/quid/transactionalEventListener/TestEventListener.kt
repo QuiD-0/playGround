@@ -23,9 +23,6 @@ class TestEventListener {
         println("completion event ${event.message}")
     }
 
-
-
-
     data class Event(val message: String): ApplicationEvent(message) {
         override fun getSource(): String = message
     }
