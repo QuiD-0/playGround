@@ -13,8 +13,8 @@ ext {
 group = 'com.quid'
 version = '0.0.1-SNAPSHOT'
 java {
-	sourceCompatibility = VERSION_21
-	targetCompatibility = VERSION_21
+	sourceCompatibility = 21
+	targetCompatibility = 21
 }
 
 repositories {
