@@ -33,4 +33,9 @@ class AnnotationTypeTest {
     void proceed() {
         assertThrows(InvalidDataAccessApiUsageException.class, repositoryJpa::proceed);
     }
+
+    @Test
+    void proceedWithRepositoryJpa() {
+        assertThrows(IllegalArgumentException.class, ()-> repositoryJpa.findById(999L).orElseThrow(IllegalArgumentException::new));
+    }
 }
