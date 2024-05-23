@@ -12,11 +12,11 @@ class EventController(
 
     @GetMapping("/success")
     fun successEvent() {
-        transactionalEventListener.onEvent(true)
+        transactionalEventListener.saveProduct(true)
     }
 
     @GetMapping("/fail")
     fun failEvent() {
-        transactionalEventListener.onEvent(false)
+        transactionalEventListener.saveProduct(false)
     }
 }

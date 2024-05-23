@@ -1,10 +1,10 @@
 package com.quid.transactionalEventListener
 
+import com.quid.specifications.domain.Product
 import com.quid.specifications.gateway.repository.ProductRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
-import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.annotation.Rollback
@@ -20,17 +20,19 @@ class TransactionalTestEventListenerTest{
     @Autowired
     lateinit var productRepository: ProductRepository
 
+    lateinit var product : Product
+
     @Test
     @Rollback(false)
     @Transactional
     fun successEvent(){
-        assertDoesNotThrow { transactionalEventListener.onEvent(true) }
+        assertDoesNotThrow { product = transactionalEventListener.saveProduct(true) }
     }
 
     @AfterTransaction
     fun afterTransaction(){
-        val product = productRepository.byId(43)
+        val find = productRepository.byId(product.id!!)
             .also { println("After transaction: $it") }
-        assertEquals("product", product.name)
+        assertEquals("product", find.name)
     }
 }
