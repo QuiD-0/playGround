@@ -18,8 +18,8 @@ class TransactionalEventListener(
     @Transactional
     fun onEvent(flag: Boolean) {
         println("transaction started")
-        repository.save(product)
-        applicationEventPublisher.publishEvent(Event("event"))
+        val id = repository.save(product).id
+        applicationEventPublisher.publishEvent(Event(id!!))
         if (!flag) {
             throw RuntimeException("error")
         }
