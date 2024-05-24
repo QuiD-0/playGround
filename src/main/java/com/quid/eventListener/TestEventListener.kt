@@ -2,6 +2,8 @@ package com.quid.eventListener
 
 import com.quid.specifications.gateway.repository.ProductRepository
 import org.springframework.context.ApplicationEvent
+import org.springframework.context.event.EventListener
+import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
@@ -27,5 +29,17 @@ class TestEventListener(
             .also { println("Rollback event: $it") }
     }
 
+    @EventListener
+    fun syncEvent(event: Event2){
+        println("Sync event $event")
+    }
+
+    @Async
+    @EventListener
+    fun asyncEvent(event: Event2){
+        println("Async event $event")
+    }
+
     data class Event(val id: Long) : ApplicationEvent(id)
+    class Event2
 }
