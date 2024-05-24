@@ -1,9 +1,9 @@
-package com.quid.transactionalEventListener
+package com.quid.eventListener
 
 import com.quid.specifications.domain.Clothing
 import com.quid.specifications.domain.Product
 import com.quid.specifications.gateway.repository.ProductRepository
-import com.quid.transactionalEventListener.TestEventListener.Event
+import com.quid.eventListener.TestEventListener.Event
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional

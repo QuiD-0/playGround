@@ -1,4 +1,4 @@
-package com.quid.transactionalEventListener
+package com.quid.eventListener
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping

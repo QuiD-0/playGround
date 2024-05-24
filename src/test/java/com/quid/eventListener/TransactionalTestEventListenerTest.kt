@@ -1,4 +1,4 @@
-package com.quid.transactionalEventListener
+package com.quid.eventListener
 
 import com.quid.specifications.domain.Product
 import com.quid.specifications.gateway.repository.ProductRepository
