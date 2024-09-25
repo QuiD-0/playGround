@@ -39,4 +39,4 @@ out/
 
 docker/db/data/*
 /src/test/resources/index
-./src/main/resources/application-dev.yaml
+/src/main/resources/application-dev.yaml
