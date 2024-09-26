@@ -36,9 +36,12 @@ dependencies {
 	implementation "org.jetbrains.kotlin:kotlin-reflect"
 	implementation 'org.junit.jupiter:junit-jupiter-api'
 	implementation 'org.apache.lucene:lucene-core:9.1.0'
+	implementation 'org.springframework.kafka:spring-kafka'
+	implementation 'org.apache.kafka:kafka-streams'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 }
