@@ -15,7 +15,7 @@ class Producer(
 
     fun throughputConsumer() {
         log.info("Sending messages")
-        IntRange(0, 10000)
+        IntRange(0, 1000)
             .forEach { kafkaTemplate.send("throughput", "Message $it") }
         log.info("Messages sent")
     }
