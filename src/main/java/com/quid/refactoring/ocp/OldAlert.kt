@@ -5,15 +5,15 @@ class OldAlert(
 ) {
     fun check(cpuStat: Int, memoryStat:Int, threshold: Int, maxThreshold: Int, currentThreadCount: Int) {
         if (cpuStat > threshold) {
-            notification.notify()
+            notification.notifyMsg()
         }
 
         if (memoryStat > maxThreshold) {
-            notification.notify()
+            notification.notifyMsg()
         }
 
         if (currentThreadCount > 100) {
-            notification.notify()
+            notification.notifyMsg()
         }
         // more checks
     }

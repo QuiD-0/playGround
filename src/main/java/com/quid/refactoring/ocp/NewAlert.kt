@@ -11,7 +11,7 @@ class NewAlert(
     fun check(statInfo: StatInfo) {
         alertChecks.forEach {
             if (it.check(statInfo)) {
-                notification.notify()
+                notification.notifyMsg()
             }
         }
     }
