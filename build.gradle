@@ -38,6 +38,7 @@ dependencies {
 	implementation 'org.apache.lucene:lucene-core:9.1.0'
 	implementation 'org.springframework.kafka:spring-kafka'
 	implementation 'org.apache.kafka:kafka-streams'
+	implementation 'io.github.resilience4j:resilience4j-spring-boot3:2.3.0'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
