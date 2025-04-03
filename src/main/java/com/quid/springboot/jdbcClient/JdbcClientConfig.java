@@ -1,4 +1,4 @@
-package com.quid.spring3.jdbcClient;
+package com.quid.springboot.jdbcClient;
 
 import javax.sql.DataSource;
 import org.springframework.boot.jdbc.DataSourceBuilder;

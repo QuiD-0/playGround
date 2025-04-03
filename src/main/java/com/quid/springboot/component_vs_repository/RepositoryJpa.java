@@ -1,4 +1,4 @@
-package com.quid.spring.component_vs_repository;
+package com.quid.springboot.component_vs_repository;
 
 import com.quid.specifications.gateway.repository.jpa.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

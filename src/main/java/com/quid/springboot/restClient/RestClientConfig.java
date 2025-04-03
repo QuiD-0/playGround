@@ -1,4 +1,4 @@
-package com.quid.spring3.restClient;
+package com.quid.springboot.restClient;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.client.RestClient;

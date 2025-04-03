@@ -1,8 +1,9 @@
-package com.quid.spring3.jdbcClient;
+package com.quid.springboot.jdbcClient;
 
 import com.quid.specifications.domain.Product;
 import com.quid.specifications.gateway.repository.jpa.ProductEntity;
 import java.util.List;
+
 import org.springframework.jdbc.core.simple.JdbcClient;
 
 public class JdbClientService {

@@ -1,4 +1,4 @@
-package com.quid.spring.component_vs_repository;
+package com.quid.springboot.component_vs_repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
