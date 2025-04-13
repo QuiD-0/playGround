@@ -1,11 +1,11 @@
 package com.quid.kafka.throughput
 
-import com.quid.java.thread.Sleep.sleep
 import org.slf4j.LoggerFactory
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.kafka.support.Acknowledgment
 import org.springframework.stereotype.Component
+import java.lang.Thread.sleep
 
 @Component
 class Producer(
