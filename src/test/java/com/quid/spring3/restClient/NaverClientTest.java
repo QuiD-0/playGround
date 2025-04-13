@@ -1,6 +1,8 @@
 package com.quid.spring3.restClient;
 
 
+import com.quid.springboot.restClient.NaverClient;
+import com.quid.springboot.restClient.RestClientConfig;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
