@@ -2,6 +2,7 @@ package com.quid.java.thread;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -42,12 +43,14 @@ public class CompletableFutureExample {
         log.info("CompletableFutureExample.forkJoin");
 
         // exceptionally는 기본적으로 예외가 발생한 스레드에서 실행된다.
-        CompletableFuture[] array = IntStream.range(0, 10)
+        CompletableFuture[] array = IntStream.range(0, 20)
             .parallel()
             .mapToObj((i) -> CompletableFuture.supplyAsync(() -> {
                     System.out.println(i + " 작업 스레드: " + Thread.currentThread().getName());
                     try {
-                        sleep(1000);
+                        Random random = new Random();
+                        int randomInt = random.nextInt(10);
+                        Thread.sleep(1000 * randomInt);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
