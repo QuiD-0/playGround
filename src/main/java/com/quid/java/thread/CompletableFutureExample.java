@@ -4,11 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.IntStream;
-
-import static java.lang.Thread.sleep;
 
 @Slf4j
 public class CompletableFutureExample {
@@ -22,6 +21,7 @@ public class CompletableFutureExample {
     private void run() {
         log.info("CompletableFutureExample.run");
         ExecutorService executorService = Executors.newCachedThreadPool();
+        CountDownLatch countDownLatch = new CountDownLatch(1);
 
         CompletableFuture.runAsync(() -> {
             System.out.println("작업 스레드: " + Thread.currentThread().getName());
@@ -29,10 +29,13 @@ public class CompletableFutureExample {
         }, executorService).exceptionally(ex -> {
             System.out.println("예외 처리 스레드: " + Thread.currentThread().getName());
             return null;
+        }).thenRun(() -> {
+            System.out.println("모든 작업 완료 스레드: " + Thread.currentThread().getName());
+            countDownLatch.countDown();
         });
 
         try {
-            sleep(1000);
+            countDownLatch.await();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -41,6 +44,7 @@ public class CompletableFutureExample {
 
     private void exceptionally() {
         log.info("CompletableFutureExample.forkJoin");
+        CountDownLatch countDownLatch = new CountDownLatch(1);
 
         // exceptionally는 기본적으로 예외가 발생한 스레드에서 실행된다.
         CompletableFuture[] array = IntStream.range(0, 20)
@@ -68,10 +72,11 @@ public class CompletableFutureExample {
         CompletableFuture.allOf(array)
             .thenRun(() -> {
                 System.out.println("모든 작업 완료 스레드: " + Thread.currentThread().getName());
+                countDownLatch.countDown();
             });
 
         try {
-            sleep(3000);
+            countDownLatch.await();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

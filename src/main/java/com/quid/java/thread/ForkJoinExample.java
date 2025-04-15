@@ -11,7 +11,7 @@ public class ForkJoinExample {
 
     private void run() {
         System.out.println("ForkJoinExample.run");
-        try (ForkJoinPool forkJoinPool = new ForkJoinPool()) {
+        try (ForkJoinPool forkJoinPool = new ForkJoinPool(10)) {
             forkJoinPool.execute(() -> {
                 System.out.println("작업 스레드: " + Thread.currentThread().getName());
                 try {
