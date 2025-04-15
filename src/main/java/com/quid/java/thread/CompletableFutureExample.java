@@ -15,7 +15,7 @@ public class CompletableFutureExample {
         System.out.println("CompletableFutureExample.main");
         CompletableFutureExample completableFutureExample = new CompletableFutureExample();
         completableFutureExample.run();
-        completableFutureExample.forkJoin();
+        completableFutureExample.exceptionally();
     }
 
     private void run() {
@@ -38,20 +38,29 @@ public class CompletableFutureExample {
         executorService.close();
     }
 
-    private void forkJoin() {
+    private void exceptionally() {
         log.info("CompletableFutureExample.forkJoin");
 
-        CompletableFuture[] array = IntStream.range(0, 7)
+        // exceptionally는 기본적으로 예외가 발생한 스레드에서 실행된다.
+        CompletableFuture[] array = IntStream.range(0, 10)
             .parallel()
             .mapToObj((i) -> CompletableFuture.supplyAsync(() -> {
-                System.out.println("작업 스레드: " + Thread.currentThread().getName());
-                try {
-                    sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                return i;
-            }))
+                    System.out.println(i + " 작업 스레드: " + Thread.currentThread().getName());
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    if (i == 5) {
+                        throw new RuntimeException("예외 발생" + i);
+                    }
+                    return i;
+                }).exceptionally((ex) -> {
+                    System.out.println("예외 처리 스레드: " + Thread.currentThread().getName());
+                    System.out.println("예외 처리: " + ex.getMessage());
+                    return null;
+                })
+            )
             .toArray(CompletableFuture[]::new);
         CompletableFuture.allOf(array)
             .thenRun(() -> {
@@ -59,7 +68,7 @@ public class CompletableFutureExample {
             });
 
         try {
-            sleep(1000);
+            sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
